@@ -16,11 +16,7 @@ io.on('connection', function (socket) {
         socket.broadcast.emit('countdown', io.engine.clientsCount);
     });
 
-    /*socket.once('disconnect', function () {
-        io.emit('count', {
-            number: io.engine.clientsCount
-        });
-    });*/
+
     socket.on('enter', function(count) {
         socket.broadcast.emit('newConnect', io.engine.clientsCount);
         socket.emit('welcome', io.engine.clientsCount);
